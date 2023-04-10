@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/samber/slog-fluentd)](https://github.com/samber/slog-fluentd/graphs/contributors)
 [![License](https://img.shields.io/github/license/samber/slog-fluentd)](./LICENSE)
 
-A [Fluentd](https://www.fluentd.org/)) Handler for [slog](https://pkg.go.dev/golang.org/x/exp/slog) Go library.
+A [Fluentd](https://www.fluentd.org/) Handler for [slog](https://pkg.go.dev/golang.org/x/exp/slog) Go library.
 
 **See also:**
 
@@ -20,6 +20,7 @@ A [Fluentd](https://www.fluentd.org/)) Handler for [slog](https://pkg.go.dev/gol
 - [slog-loki](https://github.com/samber/slog-loki): A `slog` handler for `Loki`
 - [slog-sentry](https://github.com/samber/slog-sentry): A `slog` handler for `Sentry`
 - [slog-logstash](https://github.com/samber/slog-logstash): A `slog` handler for `Logstash`
+- [slog-syslog](https://github.com/samber/slog-syslog): A `slog` handler for `Syslog`
 
 ## 🚀 Install
 
