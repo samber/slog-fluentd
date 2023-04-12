@@ -21,6 +21,7 @@ A [Fluentd](https://www.fluentd.org/) Handler for [slog](https://pkg.go.dev/gola
 - [slog-sentry](https://github.com/samber/slog-sentry): A `slog` handler for `Sentry`
 - [slog-logstash](https://github.com/samber/slog-logstash): A `slog` handler for `Logstash`
 - [slog-syslog](https://github.com/samber/slog-syslog): A `slog` handler for `Syslog`
+- [slog-graylog](https://github.com/samber/slog-graylog): A `slog` handler for `Graylog`
 
 ## 🚀 Install
 
