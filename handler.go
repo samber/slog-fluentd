@@ -83,10 +83,12 @@ func (h *FluentdHandler) getTag(record *slog.Record) string {
 		}
 	}
 
-	record.Attrs(func(attr slog.Attr) {
+	record.Attrs(func(attr slog.Attr) bool {
 		if attr.Key == "tag" && attr.Value.Kind() == slog.KindString {
 			tag = attr.Value.String()
+			return false
 		}
+		return true
 	})
 
 	return tag
