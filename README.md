@@ -1,6 +1,13 @@
 # slog: Fluentd handler
 
-[![tag](https://img.shields.io/github/tag/samber/slog-fluentd.svg)](https://github.com/samber/slog-fluentd/releases) ![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.20.3-%23007d9c) [![GoDoc](https://godoc.org/github.com/samber/slog-fluentd?status.svg)](https://pkg.go.dev/github.com/samber/slog-fluentd) ![Build Status](https://github.com/samber/slog-fluentd/actions/workflows/test.yml/badge.svg) [![Go report](https://goreportcard.com/badge/github.com/samber/slog-fluentd)](https://goreportcard.com/report/github.com/samber/slog-fluentd) [![Coverage](https://img.shields.io/codecov/c/github/samber/slog-fluentd)](https://codecov.io/gh/samber/slog-fluentd) [![Contributors](https://img.shields.io/github/contributors/samber/slog-fluentd)](https://github.com/samber/slog-fluentd/graphs/contributors) [![License](https://img.shields.io/github/license/samber/slog-fluentd)](./LICENSE)
+[![tag](https://img.shields.io/github/tag/samber/slog-fluentd.svg)](https://github.com/samber/slog-fluentd/releases)  
+![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.20.3-%23007d9c)  
+[![GoDoc](https://godoc.org/github.com/samber/slog-fluentd?status.svg)](https://pkg.go.dev/github.com/samber/slog-fluentd)  
+![Build Status](https://github.com/samber/slog-fluentd/actions/workflows/test.yml/badge.svg)  
+[![Go report](https://goreportcard.com/badge/github.com/samber/slog-fluentd)](https://goreportcard.com/report/github.com/samber/slog-fluentd)  
+[![Coverage](https://img.shields.io/codecov/c/github/samber/slog-fluentd)](https://codecov.io/gh/samber/slog-fluentd)  
+[![Contributors](https://img.shields.io/github/contributors/samber/slog-fluentd)](https://github.com/samber/slog-fluentd/graphs/contributors)  
+[![License](https://img.shields.io/github/license/samber/slog-fluentd)](./LICENSE)
 
 A [Fluentd](https://www.fluentd.org/) Handler for [slog](https://pkg.go.dev/golang.org/x/exp/slog) Go library.
 
