@@ -1,13 +1,12 @@
-
 # slog: Fluentd handler
 
-[![tag](https://img.shields.io/github/tag/samber/slog-fluentd.svg)](https://github.com/samber/slog-fluentd/releases)
-![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.20.3-%23007d9c)
-[![GoDoc](https://godoc.org/github.com/samber/slog-fluentd?status.svg)](https://pkg.go.dev/github.com/samber/slog-fluentd)
-![Build Status](https://github.com/samber/slog-fluentd/actions/workflows/test.yml/badge.svg)
-[![Go report](https://goreportcard.com/badge/github.com/samber/slog-fluentd)](https://goreportcard.com/report/github.com/samber/slog-fluentd)
-[![Coverage](https://img.shields.io/codecov/c/github/samber/slog-fluentd)](https://codecov.io/gh/samber/slog-fluentd)
-[![Contributors](https://img.shields.io/github/contributors/samber/slog-fluentd)](https://github.com/samber/slog-fluentd/graphs/contributors)
+[![tag](https://img.shields.io/github/tag/samber/slog-fluentd.svg)](https://github.com/samber/slog-fluentd/releases)  
+![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.20.3-%23007d9c)  
+[![GoDoc](https://godoc.org/github.com/samber/slog-fluentd?status.svg)](https://pkg.go.dev/github.com/samber/slog-fluentd)  
+![Build Status](https://github.com/samber/slog-fluentd/actions/workflows/test.yml/badge.svg)  
+[![Go report](https://goreportcard.com/badge/github.com/samber/slog-fluentd)](https://goreportcard.com/report/github.com/samber/slog-fluentd)  
+[![Coverage](https://img.shields.io/codecov/c/github/samber/slog-fluentd)](https://codecov.io/gh/samber/slog-fluentd)  
+[![Contributors](https://img.shields.io/github/contributors/samber/slog-fluentd)](https://github.com/samber/slog-fluentd/graphs/contributors)  
 [![License](https://img.shields.io/github/license/samber/slog-fluentd)](./LICENSE)
 
 A [Fluentd](https://www.fluentd.org/) Handler for [slog](https://pkg.go.dev/golang.org/x/exp/slog) Go library.
@@ -51,6 +50,16 @@ No breaking changes will be made to exported APIs before v1.0.0.
 
 GoDoc: [https://pkg.go.dev/github.com/samber/slog-fluentd](https://pkg.go.dev/github.com/samber/slog-fluentd)
 
+### Fluentd settings
+
+```
+<source>
+    @type forward
+    bind 0.0.0.0
+    port 24224
+</source>
+```
+
 ### Handler options
 
 ```go
@@ -86,13 +95,20 @@ func main() {
 		FluentHost:    "localhost",
 		FluentPort:    24224,
 		FluentNetwork: "tcp",
+		MarshalAsJSON: true,
 	})
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
 
-    logger := slog.New(slogfluentd.Option{Level: slog.LevelDebug, Conn: conn, Tag: "api"}.NewFluentdHandler())
+    logger := slog.New(
+        slogfluentd.Option{
+            Level: slog.LevelDebug,
+            Client: client,
+            Tag: "api",
+        }.NewFluentdHandler(),
+    )
     logger = logger.
         With("environment", "dev").
         With("release", "v1.0.0")
