@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 type Converter func(tag string, loggerAttr []slog.Attr, record *slog.Record) map[string]any

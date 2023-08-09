@@ -5,9 +5,10 @@ import (
 	"log"
 	"time"
 
+	"log/slog"
+
 	"github.com/fluent/fluent-logger-golang/fluent"
 	slogfluentd "github.com/samber/slog-fluentd"
-	"golang.org/x/exp/slog"
 )
 
 func main() {

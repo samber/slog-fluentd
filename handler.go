@@ -3,8 +3,9 @@ package slogfluentd
 import (
 	"context"
 
+	"log/slog"
+
 	"github.com/fluent/fluent-logger-golang/fluent"
-	"golang.org/x/exp/slog"
 )
 
 type Option struct {
