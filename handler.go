@@ -36,6 +36,8 @@ func (o Option) NewFluentdHandler() slog.Handler {
 	}
 }
 
+var _ slog.Handler = (*FluentdHandler)(nil)
+
 type FluentdHandler struct {
 	option Option
 	attrs  []slog.Attr
