@@ -75,12 +75,24 @@ type Option struct {
 
 	// optional: customize json payload builder
 	Converter Converter
+
+	// optional: see slog.HandlerOptions
+	AddSource   bool
+	ReplaceAttr func(groups []string, a slog.Attr) slog.Attr
 }
 ```
 
 Attributes will be injected in log payload.
 
 Fluentd `tag` can be inserted in logger options or in a record attribute of type string.
+
+Other global parameters:
+
+```go
+slogfluentd.SourceKey = "source"
+slogfluentd.ContextKey = "extra"
+slogfluentd.ErrorKeys = []string{"error", "err"}
+```
 
 ### Example
 
