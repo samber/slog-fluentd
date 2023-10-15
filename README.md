@@ -66,19 +66,19 @@ GoDoc: [https://pkg.go.dev/github.com/samber/slog-fluentd](https://pkg.go.dev/gi
 
 ```go
 type Option struct {
-	// log level (default: debug)
-	Level slog.Leveler
+    // log level (default: debug)
+    Level slog.Leveler
 
-	// connection to Fluentd
-	Client *fluentd.Fluentd
+    // connection to Fluentd
+    Client *fluentd.Fluentd
     Tag    string
 
-	// optional: customize json payload builder
-	Converter Converter
+    // optional: customize json payload builder
+    Converter Converter
 
-	// optional: see slog.HandlerOptions
-	AddSource   bool
-	ReplaceAttr func(groups []string, a slog.Attr) slog.Attr
+    // optional: see slog.HandlerOptions
+    AddSource   bool
+    ReplaceAttr func(groups []string, a slog.Attr) slog.Attr
 }
 ```
 
@@ -98,22 +98,22 @@ slogfluentd.ErrorKeys = []string{"error", "err"}
 
 ```go
 import (
-	"github.com/fluent/fluent-logger-golang/fluent"
-	slogfluentd "github.com/samber/slog-fluentd"
-	"log/slog"
+    "github.com/fluent/fluent-logger-golang/fluent"
+    slogfluentd "github.com/samber/slog-fluentd"
+    "log/slog"
 )
 
 func main() {
-	// docker-compose up -d
-	client, err := fluent.New(fluent.Config{
-		FluentHost:    "localhost",
-		FluentPort:    24224,
-		FluentNetwork: "tcp",
-		MarshalAsJSON: true,
-	})
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+    // docker-compose up -d
+    client, err := fluent.New(fluent.Config{
+        FluentHost:    "localhost",
+        FluentPort:    24224,
+        FluentNetwork: "tcp",
+        MarshalAsJSON: true,
+    })
+    if err != nil {
+        log.Fatal(err.Error())
+    }
 
 
     logger := slog.New(
