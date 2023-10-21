@@ -8,7 +8,7 @@ import (
 	"log/slog"
 
 	"github.com/fluent/fluent-logger-golang/fluent"
-	slogfluentd "github.com/samber/slog-fluentd"
+	slogfluentd "github.com/samber/slog-fluentd/v2"
 )
 
 func main() {
@@ -17,6 +17,7 @@ func main() {
 		FluentHost:    "localhost",
 		FluentPort:    24224,
 		FluentNetwork: "tcp",
+		Async:         true,
 	})
 	if err != nil {
 		log.Fatal(err.Error())

@@ -42,16 +42,16 @@ A [Fluentd](https://www.fluentd.org/) Handler for [slog](https://pkg.go.dev/log/
 ## 🚀 Install
 
 ```sh
-go get github.com/samber/slog-fluentd
+go get github.com/samber/slog-fluentd/v2
 ```
 
 **Compatibility**: go >= 1.21
 
-No breaking changes will be made to exported APIs before v2.0.0.
+No breaking changes will be made to exported APIs before v3.0.0.
 
 ## 💡 Usage
 
-GoDoc: [https://pkg.go.dev/github.com/samber/slog-fluentd](https://pkg.go.dev/github.com/samber/slog-fluentd)
+GoDoc: [https://pkg.go.dev/github.com/samber/slog-fluentd/v2](https://pkg.go.dev/github.com/samber/slog-fluentd/v2)
 
 ### Fluentd settings
 
@@ -100,7 +100,7 @@ slogfluentd.ErrorKeys = []string{"error", "err"}
 ```go
 import (
     "github.com/fluent/fluent-logger-golang/fluent"
-    slogfluentd "github.com/samber/slog-fluentd"
+    slogfluentd "github.com/samber/slog-fluentd/v2"
     "log/slog"
 )
 
@@ -111,6 +111,7 @@ func main() {
         FluentPort:    24224,
         FluentNetwork: "tcp",
         MarshalAsJSON: true,
+        Async:         true,
     })
     if err != nil {
         log.Fatal(err.Error())
