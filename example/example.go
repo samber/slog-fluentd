@@ -8,7 +8,7 @@ import (
 	"log/slog"
 
 	"github.com/fluent/fluent-logger-golang/fluent"
-	slogfluentd "github.com/samber/slog-fluentd"
+	slogfluentd "github.com/samber/slog-fluentd/v2"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module github.com/samber/slog-fluentd
+module github.com/samber/slog-fluentd/v2
 
 go 1.21
 
