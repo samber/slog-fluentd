@@ -34,6 +34,10 @@ func (o Option) NewFluentdHandler() slog.Handler {
 		panic("missing Fuentd client")
 	}
 
+	if o.Converter == nil {
+		o.Converter = DefaultConverter
+	}
+
 	return &FluentdHandler{
 		option: o,
 		attrs:  []slog.Attr{},
@@ -54,13 +58,8 @@ func (h *FluentdHandler) Enabled(_ context.Context, level slog.Level) bool {
 }
 
 func (h *FluentdHandler) Handle(ctx context.Context, record slog.Record) error {
-	converter := DefaultConverter
-	if h.option.Converter != nil {
-		converter = h.option.Converter
-	}
-
 	tag := h.getTag(&record)
-	message := converter(h.option.AddSource, h.option.ReplaceAttr, h.attrs, h.groups, &record, tag)
+	message := h.option.Converter(h.option.AddSource, h.option.ReplaceAttr, h.attrs, h.groups, &record, tag)
 
 	return h.option.Client.PostWithTime(tag, record.Time, message)
 }
