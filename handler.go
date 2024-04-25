@@ -19,6 +19,8 @@ type Option struct {
 
 	// optional: customize json payload builder
 	Converter Converter
+	// optional: fetch attributes from context
+	AttrFromContext []func(ctx context.Context) []slog.Attr
 
 	// optional: see slog.HandlerOptions
 	AddSource   bool
@@ -36,6 +38,10 @@ func (o Option) NewFluentdHandler() slog.Handler {
 
 	if o.Converter == nil {
 		o.Converter = DefaultConverter
+	}
+
+	if o.AttrFromContext == nil {
+		o.AttrFromContext = []func(ctx context.Context) []slog.Attr{}
 	}
 
 	return &FluentdHandler{
@@ -59,7 +65,8 @@ func (h *FluentdHandler) Enabled(_ context.Context, level slog.Level) bool {
 
 func (h *FluentdHandler) Handle(ctx context.Context, record slog.Record) error {
 	tag := h.getTag(&record)
-	message := h.option.Converter(h.option.AddSource, h.option.ReplaceAttr, h.attrs, h.groups, &record, tag)
+	fromContext := slogcommon.ContextExtractor(ctx, h.option.AttrFromContext)
+	message := h.option.Converter(h.option.AddSource, h.option.ReplaceAttr, append(h.attrs, fromContext...), h.groups, &record, tag)
 
 	return h.option.Client.PostWithTime(tag, record.Time, message)
 }
