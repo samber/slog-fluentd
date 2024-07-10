@@ -80,6 +80,11 @@ func (h *FluentdHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
 }
 
 func (h *FluentdHandler) WithGroup(name string) slog.Handler {
+	// https://cs.opensource.google/go/x/exp/+/46b07846:slog/handler.go;l=247
+	if name == "" {
+		return h
+	}
+
 	return &FluentdHandler{
 		option: h.option,
 		attrs:  h.attrs,
