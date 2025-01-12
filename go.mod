@@ -5,7 +5,6 @@ go 1.21
 require (
 	github.com/fluent/fluent-logger-golang v1.9.0
 	github.com/samber/slog-common v0.18.1
-	go.uber.org/goleak v1.3.0
 )
 
 require (
@@ -13,7 +12,6 @@ require (
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/philhofer/fwd v1.1.2 // indirect
 	github.com/samber/lo v1.47.0 // indirect
-	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
 	golang.org/x/text v0.16.0 // indirect
 )
